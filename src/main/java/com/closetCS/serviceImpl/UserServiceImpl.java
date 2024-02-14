@@ -1,10 +1,13 @@
 package com.closetCS.serviceImpl;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
 import com.closetCS.JWT.CustomerUsersDetailsService;
 import com.closetCS.JWT.JwtUtil;
+import com.closetCS.wrapper.UserWrapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -36,6 +39,9 @@ public class UserServiceImpl implements UserService{
 
     @Autowired
     JwtUtil jwtUtil;
+
+    @Autowired
+    
     
     @Override
     public ResponseEntity<String> singnUp(Map<String, String> requestMap) {
@@ -101,5 +107,15 @@ public class UserServiceImpl implements UserService{
         }
         return new ResponseEntity<String>("{\"message\":\""+"Bad credential."+"\"}", HttpStatus.BAD_REQUEST);
     }
-    
+
+    @Override
+    public ResponseEntity<List<UserWrapper>> getAllUser() {
+        try{
+
+        }catch (Exception ex){
+            ex.printStackTrace();
+        }
+        return new ResponseEntity<>(new ArrayList<>(), HttpStatus.INTERNAL_SERVER_ERROR);
+    }
+
 }

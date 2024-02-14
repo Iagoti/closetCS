@@ -15,6 +15,8 @@ import lombok.Data;
 
 @NamedQuery(name = "User.findByEmailId", query = "select u from User u where u.email = :email")
 
+@NamedQuery(name = "User.getAllUser", query = "select new com.closetCS.wrapper.UserWrapper(u.id, u.name, u.contactNumber, u.status) from User u where u.role = 'user'")
+
 @Data
 @Entity
 @DynamicUpdate
